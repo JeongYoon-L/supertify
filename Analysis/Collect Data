@@ -1,0 +1,2 @@
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+sp.
