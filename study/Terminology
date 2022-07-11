@@ -1,0 +1,27 @@
+Terminology
+
+
+- Cardinality
+: The number of unique value.
+  e.g., Sex: Female, Male ==> Cardinality : 2
+  Id number ==> Cardinality : the number of record in the table
+  
+  ** Query in Oracle 
+     select count(distinct(deprno)) from employee;
+     
+- Selectivity
+: The number that how they can select feature value well in the dataset. 
+  e.g., When the selectivity is 1, every value is unique
+  If we use column that has high selectivity as index, the efficiency will be high, vice versa.
+  
+  ** Query in Oracle
+     SELECT (distinct_keys / num_rows) AS Selectivity
+     FROM dba_indexes -- dab_indexes is given by Oracle catalog view
+     WHERE index_name like 'index_name' and Owner = 'Table_Owner';
+     
+  * How to increase index's selectivity? 
+    ==> Join more than two columns and use it as index (High cardinality, High Selectivity, but Low Space efficiency)
+    
+     
+  
+  
